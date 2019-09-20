@@ -35,7 +35,7 @@ class PurchaseOrderLine(models.Model):
         if self.product_id:
             date = None
             if self.order_id.date_order:
-                date = self.order_id.date_order
+                date = self.order_id.date_order.date()
             product_supplierinfo = self.product_id._select_seller(
                 partner_id=self.partner_id, quantity=self.product_qty,
                 date=date, uom_id=self.product_uom)
